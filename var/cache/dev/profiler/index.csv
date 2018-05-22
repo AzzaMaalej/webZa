@@ -1,0 +1,15 @@
+108aad,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/consulter,1526988289,,200
+52a48c,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/consulter?page=1,1526988294,,200
+7f25a3,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/consulter?page=2,1526988297,,200
+afca91,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/rechercherAnn,1526988301,2a2175,200
+2a2175,::1,POST,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/rechercherAnn,1526988301,,500
+97ef04,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/addFavoris/17,1526988309,,302
+6fd194,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/consulter?ok=1,1526988310,,200
+07f995,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/read,1526988316,,200
+6597c0,::1,POST,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/rechercher,1526988322,,200
+31382a,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/readFav,1526988325,,200
+73ae85,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/annulerFavoris/17,1526988332,,302
+7d18b8,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/annulerFavoris/17,1526988332,,302
+05dc99,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/annulerFavoris/17,1526988332,,302
+ad99fa,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/event/consulter,1526988333,,200
+73e277,::1,GET,http://localhost:8888/ZanimauxFinal%202/web/app_dev.php/affiche,1526988336,,200
