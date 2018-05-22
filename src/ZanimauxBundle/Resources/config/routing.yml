@@ -1,0 +1,38 @@
+zanimaux_homepage:
+    path:     /
+    defaults: { _controller: ZanimauxBundle:Default:index }
+
+affiche:
+    path:     /affiche
+    defaults: { _controller: ZanimauxBundle:User:affiche }
+inscription:
+    path:     /inscrit
+    defaults: { _controller: ZanimauxBundle:User:inscrit }
+redirect:
+    path:     /redirect
+    defaults: { _controller: ZanimauxBundle:User:redirect }
+profile:
+    path:     /profile
+    defaults: { _controller: ZanimauxBundle:User:show }
+deconnexion:
+    path:     /Template2
+login:
+    path:     /log
+    defaults: { _controller: ZanimauxBundle:User:login }
+loginadmin:
+    path:     /dashboard
+    defaults: { _controller: ZanimauxBundle:User:adminAffiche }
+petSitterpage:
+    path:     /petSitter
+    defaults: { _controller: ZanimauxBundle:PetSitter:affichep }
+delete:
+    path:     /delete/{id}
+    defaults: { _controller: ZanimauxBundle:User:edit}
+gereruser:
+    path:     /gerer
+    defaults: { _controller: ZanimauxBundle:User:adminuser}
+edituser:
+    path:     /gerer2/{id}
+    defaults: { _controller: ZanimauxBundle:User:adminEdituser}
+
+

@@ -1,0 +1,6 @@
+zanimaux_mobile_homepage:
+    path:     /
+    defaults: { _controller: ZanimauxMobileBundle:Default:index }
+affiche_magasin:
+    path:     /afficheMagasin
+    defaults: { _controller: ZanimauxMobileBundle:Magasin:afficheMagasin }

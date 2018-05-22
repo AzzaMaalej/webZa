@@ -1,0 +1,72 @@
+{% extends "ZanimauxBundle:User:dashboard.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block head %}
+    {{ parent() }}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+    <title>{% block title %}{{ parent() }} -gestionUser{% endblock %}</title>
+
+{% endblock %}
+{% block bar_laterale %}
+    <div id="sidebar"><a href="{{ path('loginadmin') }}" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+        <ul>
+            <li><a href="{{ path('loginadmin') }}"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+            <li class="active"> <a href="{{ path('gereruser') }}"><i class="icon icon-signal"></i> <span>Gerer les utilisateurs</span></a> </li>
+
+        </ul>
+    </div>
+{% endblock %}
+
+{% block contenu %}
+<div id="content">
+    <!--breadcrumbs-->
+    <div id="content-header">
+        <div id="breadcrumb"> <a href="{{ path('loginadmin') }}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
+    </div>
+{% block form%}
+    <div id="contenu" style="text-align: center; margin: auto">
+    <h1  style="color: black">Liste des Utilisateurs</h1>
+    </div>
+    <table class="table table-condensed">
+        <thead>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Cin</th>
+            <th>Telephone</th>
+            <th>Numéro d'ordre</th>
+            <th>Roles</th>
+            <th>Supprimer utilisateur</th>
+            <th>Modifier utilisateur</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr style="font-size: small">
+                <td>{{ user.username }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.id }}</td>
+                <td>{{ user.telephone }}</td>
+                <td>{{ user.numeroOrdre }}</td>
+                <td>{% for role in user.roles %}
+                        {{ role }},
+                    {% endfor %}</td>
+                <td><a href="{{ path('delete',{'id':user.id })}}">
+                        supprimer
+                    </a></td>
+                <td><a href="{{ path('edituser',{'id':user.id })}}">
+                        Modifier
+                    </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{% endblock %}
+
+
+
