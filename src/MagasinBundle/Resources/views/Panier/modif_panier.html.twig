@@ -1,0 +1,380 @@
+
+<html>
+<head>
+    {% block head %}
+        <meta charset="utf-8"/>
+        <title>{% block title %}Acceuil {% endblock %}</title>
+    {% block stylesheet %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+    <link href="{{  asset('css/bootstrap.css') }}" rel="stylesheet" />
+        <!-- FONT AWESOME STYLE  -->
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/boutton.css') }}" rel="stylesheet" />
+        <!-- ANIMATE STYLE  -->
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet" />
+        <!-- FLEXSLIDER STYLE  -->
+    <link href="{{ asset('css/flexslider.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/BarElFou9aniya.css') }}" rel="stylesheet" />
+
+
+        <!-- CUSTOM STYLE  -->
+        <!-- GOOGLE FONTS  -->
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css' />
+    <link href="{{ asset('adminpage/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+    <link href='//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css' rel="stylesheet">
+    <link href="{{asset('//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css')}}" rel="stylesheet" id="bootstrap-css">
+        <script src="{{asset('//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js')}}"></script>
+        <script src="{{ asset('//code.jquery.com/jquery-1.11.1.min.js') }}"></script>
+        <style class="cp-pen-styles">*
+            {
+                outline: none;
+            }
+
+            #app {
+                width: 600px;
+                padding: 15px;
+                margin: 0 auto;
+                margin-top: 15px;
+                background: #fcfcfc;
+                box-shadow: 1px 2px 3px #ccc, 1px 2px 25px #ddd;
+                -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+            }
+
+            .table {
+                width: 100%;
+            }
+            .table th, .table td {
+                padding: 0.5em;
+            }
+            .table thead th {
+                border-bottom: 2px solid #abc;
+            }
+            .table td {
+                border-bottom: 1px solid #abc;
+            }
+            .table tbody tr:last-of-type td {
+                border-bottom-width: 2px;
+            }
+            .table .cart_item_img {
+                width: 80px;
+            }
+            .table .cart_item_qty {
+                text-align: center;
+                min-width: 140px;
+                width: 140px;
+            }
+            .table .cart_item_qty::after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+            .table .cart_item_qty a, .table .cart_item_qty input {
+                float: left;
+                height: 27px;
+            }
+            .table .cart_item_qty a {
+                min-width: 27px;
+                border: 1px solid #ccc;
+                text-align: center;
+                border-radius: 3px;
+                padding-left: 3px;
+                background: #fafafa;
+                text-decoration: none;
+                -webkit-transition-duration: 0.3s;
+                transition-duration: 0.3s;
+            }
+            .table .cart_item_qty a:hover {
+                box-shadow: 1px 2px 3px #ccc;
+            }
+            .table .cart_item_qty input {
+                width: calc( 100% - 54px - 10px);
+                text-align: center;
+                margin-left: 5px;
+                margin-right: 5px;
+                border-radius: 3px;
+                border: 1px solid #ccc;
+                box-shadow: 0 1px 3px #ddd;
+            }
+            .table .cart_item_price, .table .cart_item_tprice {
+                text-align: right;
+            }
+
+            .page-btn {
+                padding-top: 15px;
+                padding-bottom: 15px;
+                margin: 0;
+                text-align: right;
+            }
+            .page-btn .btn:focus {
+                box-shadow: none;
+            }
+        </style>
+    {% endblock %}
+    {% endblock %}
+</head>
+<body>
+{% block up %}
+    <div id="container">
+
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 1px">
+            <div class="container-fluid">
+                <div class="navbar-header">
+
+                    <a class="navbar-brand" href="{{ path('redirect') }}"><img src="{{ asset('img/logo2.png') }}" style="position: absolute;	top: 0;left: O;bottom: 0; "/></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav" style="position: absolute;	top: 0;right: 10px;bottom: 0; ">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-user"></span> 
+                                    <strong>{{ user.username }}</strong>
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="navbar-login">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <p class="text-center">
+                                                        <span class="glyphicon glyphicon-user icon-size"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <p class="text-left"><strong>{{ user.nom }} {{ user.prenom }}</strong></p>
+                                                    <p class="text-left small">{{ user.email }}</p>
+                                                    <p class="text-left">
+                                                        <a href="{{ path('profile') }}" class="btn btn-primary btn-block btn-sm">Voir profil</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <div class="navbar-login navbar-login-session">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <p>
+                                                        <a href="{{ path('deconnexion') }}" class="btn btn-danger btn-block">se déconnecter</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </ul>
+
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- LOGO HEADER END-->
+    {% block menu %}
+        <section class="menu-section" style="margin-top:50px">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-12">
+
+                        <div class="navbar-collapse collapse ">
+                            <ul id="menu-top" class="nav navbar-nav navbar-right">
+                                <li><a href="{{ path('redirect') }}">Accueil </a></li>
+                                <li><a href="index.html"> Veterinaire </a></li>
+                                <li><a href="{{ path('afficher_refuge_internaute') }}"> Refuge </a></li>
+                                <li ><a href="{{ path('affiche_m') }}">Magasin </a></li>
+                                <li><a href="{{ path('listparc') }}"> Dresseur & pet-sitter </a></li>
+                                <li><a href="{{ path('listparc') }}"> Annonce</a></li>
+                                <li><a href="{{ path('listparc') }}">evenement</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+
+{% endblock %}
+<!-- MENU SECTION END-->
+{% block  contenu%}
+    <div class="below-slideshow">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="txt-block">
+                        <h1 class="head-line">Mon Panier</h1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="app">
+        <div class="cart_content">
+            <table class="table">
+                <thead>
+                <th colspan="2">Produits</th>
+                <th class="cart_item_qty">Quantité</th>
+                <th class="cart_item_price">Prix unitaire</th>
+                <th class="cart_item_tprice">Total</th>
+                <th> </th>
+                </thead>
+                <tbody>
+                {% for c in cPanier  %}
+                    <tr>
+                        <td class="cart_item_img"><img src="{{asset('img/produit/'~c.IdProduit.photoProduit )}}" style=" width: 80px;height: 80px "/></td>
+                        <td>{{ c.IdProduit.libelle  }}</td>
+                        <td class="cart_item_qty">
+
+                            <button class="inc button num_minus" >+</button>
+                            <form method="post">
+
+                                <input type="text" value="{{ c.Quantite }}" name="quantite"/>
+                            </form>
+
+                            <button class="dec button num_plus">-</button>
+
+                        </td>
+
+                        <td class="cart_item_price prix"><b >{{ c.idProduit.Prix }}</b>DT</td>
+                        <td class="cart_item_tprice pt pq"><b>{{ c.idProduit.Prix*c.Quantite }}</b>DT</td>
+                        <td><a class="list_item_del" href="{{ path('suppProduit_p',{'idContenuPanier':c.IdContenuPanier,'prix':c.idProduit.prix,'quantite':c.quantite }) }}"><i class="fa fa-trash-o"></i></a></td>
+                        <td><a class="btn btn-primary btn-sm refresh"  href="{{ path('modifPanier',{'idContenuPanier':c.idContenuPanier}) }}" type="submit"><i class="fa fa-refresh"></i></a></td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                {% if cPanier|length > 0 %}
+                    <tr >
+                        <td colspan="4">Total</td>
+                        <td class="cart_item_tprice"><b>{{ panier.Somme }}</b>DT</td>
+                        <td> </td>
+                    </tr>
+                {% else %}
+                    <tr >
+                        <td colspan="6">Vous n'avez pas encore ajouter des produit à votre panier</td>
+                    </tr>
+                {% endif %}
+                </tfoot>
+            </table>
+
+        </div>
+        <p class="page-btn"><a class="btn" href="{{ path('passeCommande') }}">Passer Commande</a>
+        </p>
+
+    </div>
+{% endblock %}
+<!--SET-DIV SECTION END-->
+{% block piedPage %}
+    <div class="footer-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+
+                    <h3> <strong>Site</strong> </h3>
+                    <p style="padding-right:50px;" >
+                        Zanimaux est site permettant la communication avec plusieurs vétérinaires, dresseurs ainsi que la possibilités
+                        de commander différents produits en ligne (Accessoires, aliments, ...)
+                        Et enfin de déposer des annonces en plus de faire des demandes d'adoptions.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social-div">
+
+
+
+                    <h3> <strong>Reseaux sociaux</strong> </h3>
+                    <br>
+
+                    <a href="#" ><h4>FACEBOOK </h4></a>
+                    <a href="#" ><h4>TWITTER </h4></a>
+                    <a href="#" ><h4>LINKEDIN </h4></a>
+
+
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <h3> <strong>Emplacement</strong> </h3>
+                    Vous nous trouvez à:
+                    <br />
+                    <h4>Z.I. Chotrana II B.P. 160، Pôle Technologique El Ghazela، ,</h4>
+                    <h4>Esprit Ghazela,</h4>
+                    <h4>Code postale: 2088</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <hr />
+                    <div style="text-align:right;padding:5px;">
+                        &copy;2018 Zanimaux.com | <a href="{{ path('affiche') }}" style="color:#fff;" target="_blank" >Réaliser par: Enigma</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+    <!--BOOTSTRAP SCRIPTS PLUGIN-->
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <!--WOW SCRIPTS PLUGIN-->
+    <script src="{{ asset('js/wow.js') }}"></script>
+    <!--FLEXSLIDER SCRIPTS PLUGIN-->
+    <script src="{{ asset('js/jquery.flexslider.js') }}"></script>
+    <!--CUSTOM SCRIPTS -->
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="{{ asset('//code.jquery.com/jquery-1.11.1.min.js') }}"></script>
+
+    <script>
+
+        $(".button").on("click", function() {
+
+            var $button = $(this);
+            var oldValue = $button.parent().find("input").val();
+            var prix = ($button.parent()).parent().find("td.prix").children().text();
+            var prixT=($button.parent()).parent().find("td.pq").children().text();
+            var prixTotal=$("tfoot tr td b").text();
+
+            if ($button.text() == "+") {
+                var newVal = parseFloat(oldValue) + 1;
+                var newpq=parseFloat(prixT)+parseFloat(prix);
+                var newpt=parseFloat(prixTotal)+parseFloat(prix);
+
+            } else {
+                // Don't allow decrementing below zero
+                if (oldValue > 0) {
+                    var newVal = parseFloat(oldValue) - 1;
+                    var newpq=parseFloat(prixT) -parseFloat(prix);
+                    var newpt=parseFloat(prixTotal)-parseFloat(prix);
+
+                } else {
+                    newVal = 0;
+
+
+                }}
+
+            $button.parent().find("input").val(newVal);
+            ($button.parent()).parent().find("td.pq").children().text(newpq);
+            $("tfoot tr td b").text(newpt);
+
+
+
+        });
+    </script>
+
+{% endblock %}
+</body>
+</html>
