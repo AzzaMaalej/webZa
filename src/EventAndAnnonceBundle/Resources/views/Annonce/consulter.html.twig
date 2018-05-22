@@ -1,0 +1,186 @@
+{% extends "ZanimauxBundle::Layout.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block up %}
+<link href="{{ asset('css/BarElFou9aniya.css') }}" rel="stylesheet" />
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+    <div id="container">
+
+        <!------ Include the above in your HEAD tag ---------->
+
+        <nav class="navbar navbar-default navbar-fixed-top" style="height: 1px">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+
+                    <a class="navbar-brand" href="{{ path('redirect') }}"><img src="{{ asset('img/logo2.png') }}" style="position: absolute;   top: 0;left: O;bottom: 0; "/></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav" style="position: absolute;  top: 0;right: 10px;bottom: 0; ">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    <strong>{{ user.username }}</strong>
+                                    <span class="glyphicon glyphicon-chevron-down"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="navbar-login">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <p class="text-center">
+                                                        <span class="glyphicon glyphicon-user icon-size"></span>
+                                                    </p>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <p class="text-left"><strong>{{ user.nom }} {{ user.prenom }}</strong></p>
+                                                    <p class="text-left small">{{ user.email }}</p>
+                                                    <p class="text-left">
+                                                        <a href="{{ path('profile') }}" class="btn btn-primary btn-block btn-sm">Voir profil</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <div class="navbar-login navbar-login-session">
+                                            <div class="row">
+                                                <div class="col-lg-12">
+                                                    <p>
+                                                        <a href="{{ path('deconnexion') }}" class="btn btn-danger btn-block">se déconnecter</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </ul>
+
+
+
+                    <ul class="nav navbar-nav navbar-right" style="position: absolute; top: 0;right: 220px;bottom: 0; ">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span>DT<span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-cart" role="menu">
+                                {% for p in cPanier%}
+                                    <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="{{asset('img/produit/'~p.IdProduit.photoProduit )}}" style="height:100px; width:100px"/></br>
+                        <span class="item-info">
+                            <span>Libelle: {{ p.IdProduit.libelle }}</span></br>
+                            <span>Quantité:{{ p.quantite }}</span></br>
+                            <span>Prix:{{ p.idProduit.prix *p.quantite }} dt</span></br>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right"><a href="{{ path('suppProduit_p',{'idContenuPanier':p.IdContenuPanier,'prix':p.idProduit.prix,'quantite':p.quantite }) }}">x</a></button>
+                    </span>
+                </span>
+                                    </li>
+                                {% endfor %}
+
+                                <li class="divider"></li>
+                                <li><a class="text-center" href="{{ path('affichePanier') }}">Voir Panier</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div>
+
+        </div>
+    </div>
+    <!-- LOGO HEADER END-->
+    {% block menu %}
+        <section class="menu-section" style="margin-top: 50px">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-md-12">
+
+                        <div class="navbar-collapse collapse ">
+                            <ul id="menu-top" class="nav navbar-nav navbar-right">
+                                <li><a href="{{ path('affiche') }}" class="menu-top-active">Accueil </a></li>
+                                <li><a href="index.html"> Veterinaire </a></li>
+                                <li><a href="{{ path('afficher_refuge_internaute') }}"> Refuge </a></li>
+                                <li ><a href="{{ path('affiche_m') }}">Magasin </a></li>
+                                <li><a href="{{ path('listparc') }}"> Dresseur & pet-sitter </a></li>
+                                <li><a href="{{ path('consulter_a') }}"> Annonce</a></li>
+                                <li><a href="{{ path('read_e') }}">evenement</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+
+    {% endblock %}
+
+{% block contenu %}
+<div class="just-sec" id="port-folio">
+
+
+    <div class="container">
+
+        <div class="row " >
+            <ul id="filters" >
+
+                <table border="0"align="center">
+                    <tr>
+
+                        <td style="padding-right:50px;">Titre</td>
+                        <td style="padding-right:50px;">Type </td>
+                        <td style="padding-right:50px;">Description</td>
+                        <td style="padding-right:50px;">Piece jointe</td>
+
+
+
+
+                    </tr>
+
+                    {% for annonce in annonces %}
+                        <tr>
+                            <td style="padding-right:50px;">{{ annonce.titre}}</td>
+                            <td style="padding-right:50px;">{{ annonce.type}}</td>
+                            <td style="padding-right:50px;">{{ annonce.description }}</td>
+                            <td style="padding-right:50px;">{{ annonce.pieceJointe }}</td>
+                            {% if  annonce.cin == user.id  %}
+                                <td><a href="{{ path("modifier_a",{ "idAnnonce":annonce.idAnnonce})}}" class="btn btn-primary btn-mini">Modifier</a></td>
+                                <td><a href="{{ path("supprimer_a",{ "idAnnonce": annonce.idAnnonce })}}" class="btn btn-primary btn-danger">Supprimer</a></td>
+                            {% endif %}
+                             {% set v=0 %}
+                            {% for f in favoris  %}
+                            {% if f.getIdA()==annonce.getIdAnnonce %}
+                            {% set v=1 %}
+                            {% endif %}{% endfor %}
+                            {% if v==1 %}
+                            <td><a href="{{ path("annulerFavoris",{ "idA": annonce.idAnnonce })}}"><span class="fa fa-heart-o"></span></a></td>
+                            {% else %}
+
+                            <td><a href="{{ path("addFavoris",{ "idA": annonce.idAnnonce })}}"><span class="fa fa-heart"></span></a></td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+                </br>
+                <button type="button"> <a style="color: black" href="{{ path('ajouter_a') }}">Ajouter Annonce</a></button>
+
+            </ul>
+
+        </div>
+    </div>
+    <div class="navigation">
+        {{ knp_pagination_render(annonces) }}
+    </div>
+{%endblock %}
