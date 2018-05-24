@@ -4,8 +4,8 @@ veterinaire_homepage:
 
 
 updateVet:
-    path:     /updateVet
-    defaults: { _controller: ZanimauxBundle:User:updateVet }
+    path:     /ModifUser
+    defaults: { _controller: ZanimauxBundle:User:ModifUser }
 
 deleteCabinet:
     path:     /deleteCabinet/{immatriculecabinet}
