@@ -1,4 +1,4 @@
-{% extends "VeterinaireBundle:Cabinet:dashboard_vet.html.twig" %}
+{% extends 'VeterinaireBundle:Cabinet:dashboard_vet.html.twig' %}
 
 
 {% block head %}
@@ -51,16 +51,16 @@
             <div class="widget-content nopadding" >
                 <form action="#" method="POST" class="form-horizontal" >
 
-                            <div class="col-md-6">
-                            <h5>Date Debut </h5>
-                            <i class="fa fa-calendar" aria-hidden="true"></i> <span id="date_debut_content"></span>
-                            <input type="hidden" name="date_debut" id="date_debut" placeholder="Date Debut"  required>
-                        </div>
-                        <div class="col-md-6">
-                            <h5>Date Fin </h5>
-                            <i class="fa fa-calendar" aria-hidden="true"></i> <span id="date_fin_content"></span>
-                            <input type="hidden" name="date_fin" id="date_fin" placeholder="Date Fin"  required>
-                        </div>
+                    <div class="col-md-6">
+                        <h5>Date Debut </h5>
+                        <i class="fa fa-calendar" aria-hidden="true"></i> <span id="date_debut_content"></span>
+                        <input type="hidden" name="date_debut" id="date_debut" placeholder="Date Debut"  required>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Date Fin </h5>
+                        <i class="fa fa-calendar" aria-hidden="true"></i> <span id="date_fin_content"></span>
+                        <input type="hidden" name="date_fin" id="date_fin" placeholder="Date Fin"  required>
+                    </div>
                     <div class="col-md-4 col-md-offset-2 demo">
                         <h4>Votre Nouvelle Disponibilité</h4>
                         <input type="text" name="dates" id="dates" class="form-control"readonly>
@@ -68,14 +68,14 @@
 
                     </div>
 
-                        <!--input class="col-md-6" name="dates" placeholder="Date" id="dates" type="text" readonly-->
+                    <!--input class="col-md-6" name="dates" placeholder="Date" id="dates" type="text" readonly-->
 
                     <a onclick="submitForm()" class="button preview margin-top-10">Ajouter <i class="fa fa-arrow-circle-right"></i></a>
                     <input id="btn_submit" class="hidden" type="submit">
-            </form>
-        </div>
+                </form>
+            </div>
 
-    </div>
+        </div>
     </div>
 
 

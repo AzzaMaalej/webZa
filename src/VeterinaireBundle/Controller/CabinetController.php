@@ -21,6 +21,8 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use MagasinBundle\Entity\ContenuPanier;
+use MagasinBundle\Entity\Panier;
 
 class CabinetController extends Controller
 {
@@ -29,11 +31,20 @@ class CabinetController extends Controller
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
+        $em = $this->getDoctrine()->getManager();
+        $cPanier=$em->getRepository(ContenuPanier::class)->getProduitPanier($user,0);
+        $panier=$em->getRepository(Panier::class)->findPanier($user);
+        if(empty($panier))
+        {
+            $panier=new Panier();
+            $panier->setSomme(0);
+        }
 
         $cabinets = $this->getDoctrine()
             ->getRepository(Cabinet::class)->findAll();
 
-        return $this->render('VeterinaireBundle:Cabinet:afficherCabinetsFront.html.twig',['cabinets'=>$cabinets,'user'=>$user]);
+        return $this->render('VeterinaireBundle:Cabinet:afficherCabinetsFront.html.twig',['cabinets'=>$cabinets,'user'=>$user,'cPanier'=>$cPanier,
+            'panier'=>$panier]);
 
 
     }
@@ -64,6 +75,14 @@ class CabinetController extends Controller
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
+        $em1 = $this->getDoctrine()->getManager();
+        $cPanier=$em1->getRepository(ContenuPanier::class)->getProduitPanier($user,0);
+        $panier=$em1->getRepository(Panier::class)->findPanier($user);
+        if(empty($panier))
+        {
+            $panier=new Panier();
+            $panier->setSomme(0);
+        }
         $em=$this->getDoctrine()->getManager();
         $cabinet = $em->getRepository(Cabinet::class)->find($immatriculecabinet);
         $vet= new User();
@@ -77,7 +96,9 @@ class CabinetController extends Controller
                 'cabinet'=>$cabinet,
                 'user'=>$user,
                 'calendriers'=>$calendriers,
-                'vet'=>$vet
+                'vet'=>$vet,
+                'cPanier'=>$cPanier,
+                'panier'=>$panier
             ));
 
 

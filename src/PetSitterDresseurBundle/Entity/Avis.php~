@@ -27,12 +27,13 @@ class Avis
      */
     private $cinUser;
 
-
     /**
-     * @ORM\ManyToOne(targetEntity="PetSitterDresseurBundle\Entity\Parc")
-     * @ORM\JoinColumn(name="idParc",referencedColumnName="id")
+     * @var integer
+     *
+     * @ORM\Column(name="idParc", type="integer", length=20, nullable=true)
      */
     private $idParc;
+
 
 
     /**
@@ -100,27 +101,4 @@ class Avis
         return $this->cinUser;
     }
 
-    /**
-     * Set idParc
-     *
-     * @param \PetSitterDresseurBundle\Entity\Parc $idParc
-     *
-     * @return Avis
-     */
-    public function setIdParc(\PetSitterDresseurBundle\Entity\Parc $idParc = null)
-    {
-        $this->idParc = $idParc;
-
-        return $this;
-    }
-
-    /**
-     * Get idParc
-     *
-     * @return \PetSitterDresseurBundle\Entity\Parc
-     */
-    public function getIdParc()
-    {
-        return $this->idParc;
-    }
 }

@@ -52,7 +52,7 @@ class ProduitController extends Controller
         $produits = $this->getDoctrine()
             ->getRepository(Produit::class)->findIdMagasin($idUser) ;
 
-        return $this->render('MagasinBundle:Produit:gere_pr.html.twig',['produits'=>$produits]);
+        return $this->render('MagasinBundle:Produit:gere1_pr.html.twig',['produits'=>$produits]);
     }
 
     public function ajoutProduitMAction(Request $request)

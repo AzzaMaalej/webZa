@@ -256,28 +256,4 @@ class Promenade
     {
         return $this->cinPetsitter;
     }
-
-    /**
-     * Set photoPromenade
-     *
-     * @param string $photoPromenade
-     *
-     * @return Promenade
-     */
-    public function setPhotoPromenade($photoPromenade)
-    {
-        $this->photoPromenade = $photoPromenade;
-
-        return $this;
-    }
-
-    /**
-     * Get photoPromenade
-     *
-     * @return string
-     */
-    public function getPhotoPromenade()
-    {
-        return $this->photoPromenade;
-    }
 }

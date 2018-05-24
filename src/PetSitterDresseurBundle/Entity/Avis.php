@@ -27,6 +27,13 @@ class Avis
      */
     private $cinUser;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idParc", type="integer", length=20, nullable=true)
+     */
+    private $idParc;
+
 
 
     /**
@@ -94,4 +101,28 @@ class Avis
         return $this->cinUser;
     }
 
+
+    /**
+     * Set idParc
+     *
+     * @param integer $idParc
+     *
+     * @return Avis
+     */
+    public function setIdParc($idParc)
+    {
+        $this->idParc = $idParc;
+
+        return $this;
+    }
+
+    /**
+     * Get idParc
+     *
+     * @return integer
+     */
+    public function getIdParc()
+    {
+        return $this->idParc;
+    }
 }
