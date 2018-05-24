@@ -1,75 +1,96 @@
-<link href="{{ asset('css/BarElFou9aniya.css') }}" rel="stylesheet" />
 
-{% block up %}
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <div id="container">
+    <!-- CUSTOM STYLE  -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/BarElFou9aniya.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+    <!-- FONT AWESOME STYLE  -->
 
-        <!------ Include the above in your HEAD tag ---------->
 
-        <nav class="navbar navbar-default navbar-fixed-top" style="height: 1px">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
+    <link href="{{ asset('css/BarElFou9aniya.css') }}" rel="stylesheet" />
+    <!-- FLEXSLIDER STYLE  -->
 
-                    <a class="navbar-brand" href="{{ path('redirect') }}"><img src="{{ asset('img/logo2.png') }}" style="position: absolute;   top: 0;left: O;bottom: 0; "/></a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                    <ul class="nav navbar-nav" style="position: absolute;  top: 0;right: 10px;bottom: 0; ">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                    <strong>{{ user.username }}</strong>
-                                    <span class="glyphicon glyphicon-chevron-down"></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <div class="navbar-login">
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <p class="text-center">
-                                                        <span class="glyphicon glyphicon-user icon-size"></span>
-                                                    </p>
-                                                </div>
-                                                <div class="col-lg-8">
-                                                    <p class="text-left"><strong>{{ user.nom }} {{ user.prenom }}</strong></p>
-                                                    <p class="text-left small">{{ user.email }}</p>
-                                                    <p class="text-left">
-                                                        <a href="{{ path('profile') }}" class="btn btn-primary btn-block btn-sm">Voir profil</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <div class="navbar-login navbar-login-session">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <p>
-                                                        <a href="{{ path('deconnexion') }}" class="btn btn-danger btn-block">se déconnecter</a>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </ul>
+    <meta charset="utf-8"/>
 
 
 
-                    <ul class="nav navbar-nav navbar-right" style="position: absolute; top: 0;right: 220px;bottom: 0; ">
+</head>
+<body>
+
+
+<div id="container">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="{{ asset('css/essaye.css') }}" rel="stylesheet">
+    <nav class="navbar navbar-default navbar-fixed-top" style="height: 1px">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="{{ path('redirect') }}"><img src="{{ asset('img/logo2.png') }}" style="position: absolute;	top: 0;left: 0;bottom: 0; "/></a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav" style="position: absolute;	top: 0;right: 10px;bottom: 0; ">
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span>DT<span class="caret"></span></a>
-                            <ul class="dropdown-menu dropdown-cart" role="menu">
-                                {% for p in cPanier%}
-                                    <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> 
+                                <strong>{{ user.username }}</strong>
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="navbar-login">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <p class="text-center">
+                                                    <span class="glyphicon glyphicon-user icon-size"></span>
+                                                </p>
+                                            </div>
+                                            <div class="col-lg-8">
+                                                <p class="text-left"><strong>{{ user.nom }} {{ user.prenom }}</strong></p>
+                                                <p class="text-left small">{{ user.email }}</p>
+                                                <p class="text-left">
+                                                    <a href="{{ path('profile') }}" class="btn btn-primary btn-block btn-sm">Voir profil</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="navbar-login navbar-login-session">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <p>
+                                                    <a href="{{ path('deconnexion') }}" class="btn btn-danger btn-block">se déconnecter</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </ul>
+
+
+
+                <ul class="nav navbar-nav navbar-right" style="position: absolute;	top: 0;right: 220px;bottom: 0; ">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span>{{ panier.Somme }}DT<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-cart" role="menu">
+                            {% for p in cPanier%}
+                                <li>
                   <span class="item">
                     <span class="item-left">
                         <img src="{{asset('img/produit/'~p.IdProduit.photoProduit )}}" style="height:100px; width:100px"/></br>
@@ -83,115 +104,178 @@
                         <button class="btn btn-xs btn-danger pull-right"><a href="{{ path('suppProduit_p',{'idContenuPanier':p.IdContenuPanier,'prix':p.idProduit.prix,'quantite':p.quantite }) }}">x</a></button>
                     </span>
                 </span>
-                                    </li>
-                                {% endfor %}
+                                </li>
+                            {% endfor %}
 
-                                <li class="divider"></li>
-                                <li><a class="text-center" href="{{ path('affichePanier') }}">Voir Panier</a></li>
-                            </ul>
-                        </li>
+                            <li class="divider"></li>
+                            <li><a class="text-center" href="{{ path('affichePanier') }}">Voir Panier</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div>
+
+    </div>
+</div>
+<!-- LOGO HEADER END-->
+<section class="menu-section" style="margin-top:-30px">
+
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-12">
+
+                <div class="navbar-collapse collapse ">
+                    <ul id="menu-top" class="nav navbar-nav navbar-right">
+                        <li><a href="{{ path('redirect') }}">Accueil </a></li>
+                        <li><a href="{{ path('afficherCabinetsFront') }}"> Veterinaire </a></li>
+                        <li><a href="{{ path('afficher_refuge') }}"> Refuge </a></li>
+                        <li ><a href="{{ path('affiche_m') }}" >Magasin </a></li>
+                        <li><a href="{{ path('listparc') }}"> Dresseur & pet-sitter </a></li>
+                        <li><a href="{{ path('consulter_a') }}"class="menu-top-active"> Annonce</a></li>
+                        <li><a href="{{ path('read_e') }}">evenement</a></li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-        <div>
+                </div>
+
+            </div>
 
         </div>
     </div>
+</section>
 
-    {% block menu %}
-        <section class="menu-section" style="margin-top: 50px">
-            <form class="navbar-form navbar-right" method="post" action="{{ path('rechercher_e') }}">
-                <nav>
-                    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" name="motcle">
-                </nav>
-            </form>
-            <div class="container">
-                <div class="row ">
-                    <div class="col-md-12">
+<div class="below-slideshow" style=" margin-bottom:30px">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="txt-block">
+                    <h1 class="head-line">MAROUAAAAAA</h1>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- BELOW SLIDESHOW SECTION END-->
+
+<body class="just-sec" id="port-folio">
 
 
-                        <div class="navbar-collapse collapse ">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="{{ asset('css/essaye.css') }}" rel="stylesheet">
+<!------ Include the above in your HEAD tag ---------->
+<div class="container">
+    <div class="row">
+        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+            <ul class="event-list">
+                <li>
 
-                            <ul id="menu-top" class="nav navbar-nav navbar-right">
-                                <li><a href="{{ path('affiche') }}" >Accueil </a></li>
-                                <li><a href="{{ ('afficherCabinetFront') }}"> Veterinaire </a></li>
-                                <li><a href="{{ path('afficher_refuge') }}"> Refuge </a></li>
-                                <li ><a href="{{ path('affiche_m') }}">Magasin </a></li>
-                                <li><a href="{{ path('listparc') }}"> Dresseur & pet-sitter </a></li>
-                                <li><a href="{{ path('consulter_a') }}"> Annonce</a></li>
-                                <li><a href="{{ path('readFavoris') }}">Mes Annonces Favoris</a></li>
-                                <li><a href="{{ path('read_e') }}"class="menu-top-active">evenement</a></li>
-                            </ul>
-                        </div>
+                    <!--l'annonce en cours est elle dans la table favoris ou nn!-->
+
+
+
+                    <img alt="My 24th Birthday!" src="{{ asset('img/'~ evenement.imageEvt) }}" style="width:20%;"/>
+                    <div class="info" style="width:75%;">
+                        <h2 class="title">{{ evenement.titre }}</h2>
+                        <h6>Ceci aura lieu le  :{{ evenement.datedebut|date('d-m-y') }} </h6>
+                        <h6>et sera cloturé le   :{{ evenement.datefin|date('d-m-y') }} </h6>
+                        <h6 >{{ evenement.description }}</h6>
+                        <ul>
+                            {% if  evenement.cin == user.id  %}
+
+
+                                <li style="width:33%;"><a href="{{ path("delete_e",{ "idEvt": evenement.idEvt })}}" class="fa fa-eraser"></a></li>
+                                <li style="width:33%;"><a href="{{ path("update_e",{ "idEvt":evenement.idEvt})}}" class="fa fa-edit"></a></li>
+                            {% endif %}
+                            {% if  verif==1 %}
+                                <li style="width:33%;" class="btn btn-primary btn-warning"> Plein </li>
+                                <!--si la la table participer ne contient pas l'id du participant x dans l'evenemnt x donc afficher participer!-->
+                            {% elseif participer is null %}
+                                <li><a href="{{ path("add_participation",{ "idE": evenement.idEvt })}}"class="btn btn-primary btn-success">Participer</a></li>
+
+                            {% else %}
+                                <li><a href="{{ path('annuler_participation',{"idE":evenement.idEvt}) }}" class="btn btn-primary btn-danger">Annuler </a> </li>
+
+
+
+                            {% endif  %}
+
+                        </ul>
+                    </div>
+                    <div class="social" style="width:5%;">
+                        <ul>
+                            <li class="facebook" style="width:33%;"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1&display=popup&ref=plugin&src=like&kid_directed_site=0"><span class="fa fa-facebook"></span></a></li>
+                            <li class="twitter" style="width:34%;"><a href="https://twitter.com/intent/tweet?hashtags=Esprit&original_referer=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1&ref_src=twsrc%5Etfw&text=Je%20veux%20partager%20%C3%A7a%20avec%20vous&tw_p=tweetbutton&url=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1&via=Esprit%20Test"><span class="fa fa-twitter"></span></a></li>
+                            <li class="google-plus" style="width:33%;"><a href="https://plus.google.com/share?app=110&url=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1"><span class="fa fa-google-plus"></span></a></li>
+                        </ul>
 
                     </div>
+                </li>
 
-                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="footer-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+
+
+                <h3> <strong>Site</strong> </h3>
+                <p style="padding-right:50px;" >
+                    Zanimaux est site permettant la communication avec plusieurs vétérinaires, dresseurs ainsi que la possibilités
+                    de commander différents produits en ligne (Accessoires, aliments, ...)
+                    Et enfin de déposer des annonces en plus de faire des demandes d'adoptions.
+                </p>
             </div>
-        </section>
-    {% endblock %}
-
-    {% block contenu %}
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <link href="{{ asset('css/essaye.css') }}" rel="stylesheet">
-        <!------ Include the above in your HEAD tag ---------->
-
-        <div class="container">
-            <div class="row">
-                <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
-                    <ul class="event-list">
-                            <li>
-
-                                <!--l'annonce en cours est elle dans la table favoris ou nn!-->
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 social-div">
 
 
 
-                                <img alt="My 24th Birthday!" src="{{ asset(evenement.imageEvt) }}" />
-                                <div class="info">
-                                    <h2 class="title">{{ evenement.titre }}</h2>
-                                    <h6>Ceci aura lieu le  :{{ evenement.datedebut|date('d-m-y') }} </h6>
-                                    <h6>et sera cloturé le   :{{ evenement.datefin|date('d-m-y') }} </h6>
-                                    <h6 >{{ evenement.description }}</h6>
-                                    <ul>
-                                        {% if  evenement.cin == user.id  %}
+                <h3> <strong>Reseaux sociaux</strong> </h3>
+                <br>
+
+                <a href="#" ><h4>FACEBOOK </h4></a>
+                <a href="#" ><h4>TWITTER </h4></a>
+                <a href="#" ><h4>LINKEDIN </h4></a>
 
 
-                                            <li style="width:33%;"><a href="{{ path("delete_e",{ "idEvt": evenement.idEvt })}}" class="fa fa-eraser"></a></li>
-                                            <li style="width:34%;"><a href="{{ path("update_e",{ "idEvt":evenement.idEvt})}}" class="fa fa-edit"></a></li>
-                                        {% endif %}
-                                        {% if  verif==1 %}
-                                            <li  style="padding-right:50px;" class="btn btn-primary btn-warning"> Plein </li>
-                                            <!--si la la table participer ne contient pas l'id du participant x dans l'evenemnt x donc afficher participer!-->
-                                        {% elseif participer is null %}
-                                            <li><a href="{{ path("add_participation",{ "idE": evenement.idEvt })}}"class="btn btn-primary btn-success">Participer</a></li>
-
-                                        {% else %}
-                                            <li><a href="{{ path('annuler_participation',{"idE":evenement.idEvt}) }}" class="btn btn-primary btn-danger">Annuler </a> </li>
-
-
-
-                                        {% endif  %}
-
-                                    </ul>
-                                </div>
-                                <div class="social">
-                                    <ul>
-                                        <li class="facebook" style="width:33%;"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1&display=popup&ref=plugin&src=like&kid_directed_site=0"><span class="fa fa-facebook"></span></a></li>
-                                        <li class="twitter" style="width:34%;"><a href="https://twitter.com/intent/tweet?hashtags=Esprit&original_referer=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1&ref_src=twsrc%5Etfw&text=Je%20veux%20partager%20%C3%A7a%20avec%20vous&tw_p=tweetbutton&url=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1&via=Esprit%20Test"><span class="fa fa-twitter"></span></a></li>
-                                        <li class="google-plus" style="width:33%;"><a href="https://plus.google.com/share?app=110&url=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1"><span class="fa fa-google-plus"></span></a></li>
-                                    </ul>
-
-                                </div>
-                            </li>
-
-                    </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <h3> <strong>Emplacement</strong> </h3>
+                Vous nous trouvez à:
+                <br />
+                <h4>Z.I. Chotrana II B.P. 160، Pôle Technologique El Ghazela، ,</h4>
+                <h4>Esprit Ghazela,</h4>
+                <h4>Code postale: 2088</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <hr />
+                <div style="text-align:right;padding:5px;">
+                    &copy;2018 Zanimaux.com | <a href="{{ path('affiche') }}" style="color:#fff;" target="_blank" >Réaliser par: Enigma</a>
                 </div>
             </div>
         </div>
+    </div>
+    <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+    <!--BOOTSTRAP SCRIPTS PLUGIN-->
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <!--WOW SCRIPTS PLUGIN-->
+    <script src="{{ asset('js/wow.js') }}"></script>
+    <!--FLEXSLIDER SCRIPTS PLUGIN-->
+    <script src="{{ asset('js/jquery.flexslider.js') }}"></script>
+    <!--CUSTOM SCRIPTS -->
+    <script src="{{ asset('js/custom.js') }}"></script>
+</div>
+</div>
 
+</body>
 
-
-        </div>
-    {% endblock %}
-{% endblock %}
+</html>

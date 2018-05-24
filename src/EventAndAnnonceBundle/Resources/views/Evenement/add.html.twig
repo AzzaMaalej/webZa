@@ -13,28 +13,29 @@
 {% endblock %}
 
 {% block menu %}
-    <section class="menu-section">
+    <section class="menu-section" style="margin-top:50px">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-12">
 
-        <div class="container">
-            <div class="row ">
-                <div class="col-md-12">
-
-                    <div class="navbar-collapse collapse ">
-                        <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a href="{{ path('redirectDresseur') }}">Accueil</a></li>
-                            <li><a href="index.html">Veterinaire</a></li>
-                            <li><a href="{{ path('consulter_a') }}">Annonce</a></li>
-                            <li><a href="{{ path('read_e') }}" class="menu-top-active">Evenement</a></li>
-                            <li><a href="{{ path('listparc') }}">Parc</a></li>
-                            <li><a href="{{ path('profileDresseur') }}" >Profil</a></li>
-                        </ul>
-                    </div>
-
+                <div class="navbar-collapse collapse ">
+                    <ul id="menu-top" class="nav navbar-nav navbar-right">
+                        <li><a href="{{ path('redirect') }}">Accueil </a></li>
+                        <li><a href="{{ path('afficherCabinetsFront') }}"> Veterinaire </a></li>
+                        <li><a href="{{ path('afficher_refuge') }}"> Refuge </a></li>
+                        <li ><a href="{{ path('affiche_m') }}" >Magasin </a></li>
+                        <li><a href="{{ path('listparc') }}"> Dresseur & pet-sitter </a></li>
+                        <li><a href="{{ path('consulter_a') }}"> Annonce</a></li>
+                        <li><a href="{{ path('read_e') }}"class="menu-top-active">evenement</a></li>
+                    </ul>
                 </div>
 
             </div>
+
         </div>
+    </div>
     </section>
+
 {% endblock %}
 {% block contenu %}
 
