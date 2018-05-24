@@ -21,6 +21,7 @@
             <li ><a href="{{ path('affiche') }}"><i class="icon icon-home"></i> <span>Zanimo</span></a> </li>
             <li class="active"> <a href=""><i class="icon icon-signal"></i> <span>Liste des evenements</span></a> </li>
             <li> <a href="{{ path('addAdmin')}}"><i class="icon icon-inbox"></i> <span>Ajouter Evenementt</span></a> </li>
+            <li> <a href="{{ path('ajouterAnnonceAdmin')}}"><i class="icon icon-inbox"></i> <span>Ajouter annonces</span></a> </li>
 
 
             <li><a href="grid.html"><i class="icon icon-fullscreen"></i> <span>Full width</span></a></li>
@@ -52,7 +53,7 @@
                         <tr >
                             <td height="150" width="180">
                                 <div class="control-group" id="cadre">
-                                    <img class="card-img-top image " width="174.217" height="130.667" alt="Evenement" src="{{asset('/img/portfolio')~ evenement.ImageEvt}}">
+                                    <img class="card-img-top image " width="174.217" height="130.667" alt="Evenement" src="{{asset('img/')~ evenement.ImageEvt}}">
                                     <div class="controls">
 
                                     </div>

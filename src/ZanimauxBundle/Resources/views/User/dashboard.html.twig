@@ -36,7 +36,7 @@
 <!--top-Header-menu-->
 <div id="user-nav" class="navbar navbar-inverse">
     <ul class="nav">
-        <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Bienvenu proprietaire refuge admin</span><b class="caret"></b></a>
+        <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Bienvenu </span><b class="caret"></b></a>
         </li>
         <li class=""><a title="" href="{{ path('deconnexion') }}"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
     </ul>
@@ -50,6 +50,8 @@
     <ul>
         <li class="active"><a href="{{ path('loginadmin') }}"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
         <li> <a href="{{ path('gereruser') }}"><i class="icon icon-signal"></i> <span>Gerer les utilisateurs</span></a> </li>
+        <li> <a href="{{ path('afficheAdmin') }}"><i class="icon icon-calendar"></i> <span>Evenement</span></a> </li>
+        <li> <a href="{{ path('afficherAnnonceAdmin') }}"><i class="icon glyphicon-volume-up"></i> <span>Annonces</span></a> </li>
     </ul>
 </div>
 {% endblock %}

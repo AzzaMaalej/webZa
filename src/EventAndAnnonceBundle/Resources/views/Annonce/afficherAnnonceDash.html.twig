@@ -21,6 +21,7 @@
             <li ><a href="{{ path('affiche') }}"><i class="icon icon-home"></i> <span>Zanimo</span></a> </li>
             <li> <a href=""><i class="icon icon-signal"></i> <span>Liste des evenements</span></a> </li>
             <li> <a href="{{ path('addAdmin')}}"><i class="icon icon-inbox"></i> <span>Ajouter Evenement</span></a> </li>
+            <li> <a href="{{ path('afficheAdmin') }}"><i class="icon icon-calendar"></i> <span>Evenement</span></a> </li>
             <li> <a href="{{ path('ajouterAnnonceAdmin')}}"><i class="icon icon-inbox"></i> <span>Ajouter annonces</span></a> </li>
             <li class="active"> <a href="{{ path('afficherAnnonceAdmin')}}"><i class="icon icon-inbox"></i> <span>Liste des annonces</span></a> </li>
 
@@ -54,7 +55,7 @@
 
                             <td height="150" width="180">
                                 <div class="control-group" id="cadre">
-                                    <img class="card-img-top image " width="174.217" height="130.667" alt="Annonce" src="{{asset('/img/portfolio')~ annonce.pieceJointe}}">
+                                    <img class="card-img-top image " width="174.217" height="130.667" alt="Annonce" src="{{asset('img/')~ annonce.pieceJointe}}">
                                     <div class="controls">
 
                                     </div>

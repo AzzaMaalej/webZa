@@ -111,15 +111,15 @@ class EvenementController extends Controller
         $evenements = $this->getDoctrine()
             ->getRepository(Evenement::class)
             ->findAll();
-       /* $paginator =$this->get('knp_paginator');
+        $paginator =$this->get('knp_paginator');
         $result=$paginator->paginate(
             $evenements,
             $request->query->getInt('page',2),
             $request->query->getInt('limit',2)
-        );*/
+        );
               return $this->render('EventAndAnnonceBundle:Evenement:read.html.twig',[
             'user' => $user,
-            'evenements'=>$evenements,
+            'evenements'=>$result,
               'cPanier'=>$cPanier,
                'panier'=>$panier]
 
