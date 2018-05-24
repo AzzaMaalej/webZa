@@ -87,30 +87,30 @@
 {% endblock %}
 {% block contenu %}
     <div id="content">
-    <!--breadcrumbs-->
-    <div id="content-header">
-        <div id="breadcrumb"> <a href="{{ path('loginadmin') }}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
-    </div>
-    <div class="widget-box">
-        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
-            <h5>Affiche Article</h5>
+        <!--breadcrumbs-->
+        <div id="content-header">
+            <div id="breadcrumb"> <a href="{{ path('loginadmin') }}" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
         </div>
+        <div class="widget-box">
+            <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+                <h5>Affiche Article</h5>
+            </div>
 
-        <div class="widget-content nopadding" >
-            <table class="recent-posts">
-                {% for article in articles %}
+            <div class="widget-content nopadding" >
+                <table class="recent-posts">
+                    {% for article in articles %}
 
-                    <form action="#" method="POST" class="form-horizontal"  >
-                        <tr >
-                            <td height="150" width="180">
-                                <div class="control-group" id="cadre">
-                                    <img class="card-img-top image " width="174.217" height="130.667" alt="User" src="{{asset('img/portfolio/'~ article.piecejointe )}}">
-                                    <div class="controls">
+                        <form action="#" method="POST" class="form-horizontal"  >
+                            <tr >
+                                <td height="150" width="180">
+                                    <div class="control-group" id="cadre">
+                                        <img class="card-img-top image " width="174.217" height="130.667" alt="User" src="{{asset('img/portfolio/'~ article.piecejointe )}}">
+                                        <div class="controls">
 
+                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                            <td >
+                                </td>
+                                <td >
                             <span class="user-info">
                     <div class="control-group" id="cadre">
                         <label class="control-label"> {{ article.titre }}</label>
@@ -125,19 +125,19 @@
                         </div>
                     </div>
                             </span>
-                            </td>
-                    </form>
-                    <td>
-                        <a href="{{ path('updateArticle',{'id': article.id }) }}" class="btn btn-primary btn-mini">edit</a>
-                        <a href="{{ path('deleteArticle',{'id': article.id }) }}" class="btn btn-primary btn-mini">delete</a>
-                    </td>
-                    </tr>
-                {% endfor %}
-                <a href="{{ path('afficherArticlesFront')}}" class="btn btn-primary btn-mini">Visualiser en tant que user</a>
+                                </td>
+                        </form>
+                        <td>
+                            <a href="{{ path('updateArticle',{'id': article.id }) }}" class="btn btn-primary btn-mini">edit</a>
+                            <a href="{{ path('deleteArticle',{'id': article.id }) }}" class="btn btn-primary btn-mini">delete</a>
+                        </td>
+                        </tr>
+                    {% endfor %}
+                    <a href="{{ path('afficherArticlesFront')}}" class="btn btn-primary btn-mini">Visualiser en tant que user</a>
 
-            </table>
+                </table>
+            </div>
         </div>
-    </div>
     </div>
 {%endblock%}
 

@@ -15,6 +15,8 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Mgilet\NotificationBundle\Annotation\Notifiable;
 use Mgilet\NotificationBundle\NotifiableInterface;
+use MagasinBundle\Entity\ContenuPanier;
+use MagasinBundle\Entity\Panier;
 
 class ArticleController extends Controller
 {
@@ -24,10 +26,23 @@ class ArticleController extends Controller
         if (!is_object($user) || !$user instanceof UserInterface) {
             throw new AccessDeniedException('This user does not have access to this section.');
         }
+        $em = $this->getDoctrine()->getManager();
+        $cPanier=$em->getRepository(ContenuPanier::class)->getProduitPanier($user,0);
+        $panier=$em->getRepository(Panier::class)->findPanier($user);
+        if(empty($panier))
+        {
+            $panier=new Panier();
+            $panier->setSomme(0);
+        }
+
         $articles = $this->getDoctrine()
             ->getRepository(Article::class)->findAll();
 
-        return $this->render('VeterinaireBundle:Article:afficherArticlesFront.html.twig',['articles'=>$articles,'user'=>$user]);
+
+
+
+        return $this->render('VeterinaireBundle:Article:afficherArticlesFront.html.twig',['articles'=>$articles,'user'=>$user,'cPanier'=>$cPanier,
+            'panier'=>$panier]);
 
 
     }
@@ -61,7 +76,7 @@ class ArticleController extends Controller
 
         return $this->render('VeterinaireBundle:Article:afficherArticlesBack.html.twig', array(
             'articles' => $articles,
-             'user'=>$user,
+            'user'=>$user,
             'notification'=>$notifiableRepo
         ));}
 
