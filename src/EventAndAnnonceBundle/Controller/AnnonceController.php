@@ -27,6 +27,11 @@ class AnnonceController extends Controller
             throw new AccessDeniedException('This user does not have access to this section.');
         }
 
+        $em = $this->getDoctrine()->getManager();
+        $cPanier=$em->getRepository(ContenuPanier::class)->getProduitPanier($user,0);
+        $panier=$em->getRepository(Panier::class)->findPanier($user);
+
+
         $annonce = new Annonce();
         $user = $this->getUser();
         $form = $this->createForm(AnnonceType::class, $annonce);
@@ -49,7 +54,10 @@ class AnnonceController extends Controller
         }
         return $this->render('EventAndAnnonceBundle:Annonce:ajouter.html.twig', array(
             'user'=>$user,
+            'cPanier'=>$cPanier,
+            'panier'=>$panier,
             'form' => $form->createView()));
+
     }
 
     //Mise à jour annonce
