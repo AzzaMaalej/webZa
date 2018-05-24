@@ -2,6 +2,9 @@
 <head>
     {% block head %}
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
         <title>{% block title %}Layout principal {% endblock %}</title>
         {% block stylesheet %}
             <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -138,16 +141,15 @@
 
                         <div class="navbar-collapse collapse ">
                             <ul id="menu-top" class="nav navbar-nav navbar-right">
-                                <li><a href="{{ path('affiche') }}" class="menu-top-active">Accueil </a></li>
-                                <li><a href="index.html"> Veterinaire </a></li>
-                                <li><a href="{{ path('afficher_refuge_internaute') }}"> Refuge </a></li>
+                                <li><a href="{{ path('redirect') }}" >Accueil </a></li>
+                                <li><a href="{{ path('afficherCabinetsFront') }}"> Veterinaire </a></li>
+                                <li><a href="{{ path('afficher_refuge') }}"> Refuge </a></li>
                                 <li ><a href="{{ path('affiche_m') }}">Magasin </a></li>
-                                <li><a href="{{ path('listparc') }}"> Dresseur & pet-sitter </a></li>
-                                <li><a href="{{ path('listparc') }}"> Annonce</a></li>
-                                <li><a href="{{ path('listparc') }}">evenement</a></li>
+                                <li><a href="{{ path('listparc') }}"class="menu-top-active"> Dresseur & pet-sitter </a></li>
+                                <li><a href="{{ path('consulter_a') }}"> Annonce</a></li>
+                                <li><a href="{{ path('read_e') }}">evenement</a></li>
                             </ul>
                         </div>
-
                     </div>
 
                 </div>

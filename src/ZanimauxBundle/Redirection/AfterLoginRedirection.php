@@ -56,7 +56,7 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
         elseif (in_array('ROLE_PETSITTER', $rolesTab, true))
             $redirection = new RedirectResponse($this->router->generate('redirectPetSitter'));
         elseif (in_array('ROLE_VETERINAIRE', $rolesTab, true))
-            $redirection = new RedirectResponse($this->router->generate('redirect'));
+            $redirection = new RedirectResponse($this->router->generate('afficheCabinetBack'));
         elseif (in_array('ROLE_PROPRIETAIRE_MAGASIN', $rolesTab, true))
             $redirection = new RedirectResponse($this->router->generate('afficheMagasinProp'));
         elseif (in_array('ROLE_PROPRIETAIRE_REFUGE', $rolesTab, true))
