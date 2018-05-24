@@ -3,7 +3,7 @@
     {{ parent() }}
     <title>{% block title %}Nos Produits{% endblock %}</title>
     {% block stylesheet %}
-    {{ parent() }}
+        {{ parent() }}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
@@ -22,28 +22,28 @@
 {% endblock %}
 
 {% block menu %}
-<section class="menu-section" >
-    <div class="container">
-        <div class="row ">
-            <div class="col-md-12" style=" margin-top : 50px">
+    <section class="menu-section" style="margin-top:-15px">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-12">
 
-                <div class="navbar-collapse collapse " style="text-align:center; font-family:  sans-serif; ">
-                    <ul id="menu-top" class="nav navbar-nav navbar-right">
-                        <li><a href="{{ path('redirect') }}"  style="font-size: 14px;color:  #b3d7ff ; "><i class="fas fa-paw"></i> Accueil <i class="fas fa-paw"></i></a></li>
-                        <li><a href="index.html" style="font-size: 14px; color:  #b3d7ff ; "><i class="fas fa-paw"></i> Veterinaire <i class="fas fa-paw"></i></a></li>
-                        <li><a href="about.html" style="font-size: 14px; color:  #b3d7ff ;"><i class="fas fa-paw" ></i> Refuge <i class="fas fa-paw"></i></a></li>
-                        <li ><a href="{{ path('affiche_m') }}" style="font-size: 14px;color:  #b3d7ff ; " ><i class="fas fa-paw" class="menu-top-active"></i> Magasin <i class="fas fa-paw"></i></a></li>
-                        <li><a href="contact.html" style="font-size: 14px;color:  #b3d7ff ; "><i class="fas fa-paw"></i> Dresseur & pet-sitter <i class="fas fa-paw"></i></a></li>
-                        <li><a href="features.html" style="font-size: 14px; color:  #b3d7ff ;"><i class="fas fa-paw"></i> Annonce <i class="fas fa-paw"></i></a></li>
-                        <li><a href="contact.html" style="font-size: 14px;color:  #b3d7ff ; "><i class="fas fa-paw"></i> evenement <i class="fas fa-paw"></i></a></li>
-                    </ul>
+                    <div class="navbar-collapse collapse ">
+                        <ul id="menu-top" class="nav navbar-nav navbar-right">
+                            <li><a href="{{ path('redirect') }}">Accueil </a></li>
+                            <li><a href="{{ path('afficherCabinetsFront') }}"> Veterinaire </a></li>
+                            <li><a href="{{ path('afficher_refuge') }}"> Refuge </a></li>
+                            <li ><a href="{{ path('affiche_m') }}" class="menu-top-active">Magasin </a></li>
+                            <li><a href="{{ path('listparc') }}"> Dresseur & pet-sitter </a></li>
+                            <li><a href="{{ path('consulter_a') }}"> Annonce</a></li>
+                            <li><a href="{{ path('read_e') }}">evenement</a></li>
+                        </ul>
+                    </div>
+
                 </div>
 
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
 {% block contenu %}
 
@@ -68,25 +68,25 @@
         <div id="content">
 
             <div class="row">
-{% for produit in produits %}
-                <div class="col-lg-4 col-md-6 mb-4 oumaima" style="width: 300px; border-radius: 15px">
-                    <div class="card h-100 " style="height:600px; ">
-                        <a href="#"><img class="card-img-top" src="{{asset('img/produit/'~produit.photoProduit )}}" ></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="#">{{ produit.libelle }}</a>
-                            </h4>
-                            <h5> {{ produit.prix }}DT</h5>
-                            <p class="card-text"></p>
-                        </div>
-                        <div class="action" style="padding: 12px">
-                            <a class="add-to-cart btn btn-default " style="width: 220px;background: #0BA898;" disabled="" >Ajouter au panier</a>
-                        </div>
-                        <div class="card-footer">
+                {% for produit in produits %}
+                    <div class="col-lg-4 col-md-6 mb-4 oumaima" style="width: 300px; border-radius: 15px">
+                        <div class="card h-100 " style="height:600px; ">
+                            <a href="#"><img class="card-img-top" src="{{asset('img/produit/'~produit.photoProduit )}}" ></a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="#">{{ produit.libelle }}</a>
+                                </h4>
+                                <h5> {{ produit.prix }}DT</h5>
+                                <p class="card-text"></p>
+                            </div>
+                            <div class="action" style="padding: 12px">
+                                <a class="add-to-cart btn btn-default " style="width: 220px;background: #0BA898;" disabled="" >Ajouter au panier</a>
+                            </div>
+                            <div class="card-footer">
+                            </div>
                         </div>
                     </div>
-                </div>
-{% endfor %}
+                {% endfor %}
 
 
             </div>

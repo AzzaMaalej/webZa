@@ -31,17 +31,17 @@
 
     </div>
     {% block menu %}
-        <section class="menu-section" style="margin-top: 50px">
+        <section class="menu-section" style="margin-top:50px">
             <div class="container">
                 <div class="row ">
                     <div class="col-md-12">
 
                         <div class="navbar-collapse collapse ">
-                            <ul>
+                            <ul id="menu-top" class="nav navbar-nav navbar-right">
                                 <li><a href="{{ path('redirect') }}">Accueil </a></li>
                                 <li><a href="{{ path('afficherCabinetsFront') }}"> Veterinaire </a></li>
-                                <li><a  href="{{ path('afficher_refuge') }}"> Refuge </a></li>
-                                <li ><a href="{{ path('affiche_m') }} >Magasin </a></li>
+                                <li><a href="{{ path('afficher_refuge') }}"> Refuge </a></li>
+                                <li ><a href="{{ path('affiche_m') }}">Magasin </a></li>
                                 <li><a href="{{ path('listparc') }}"> Dresseur & pet-sitter </a></li>
                                 <li><a href="{{ path('consulter_a') }}"> Annonce</a></li>
                                 <li><a href="{{ path('read_e') }}">evenement</a></li>
@@ -53,6 +53,7 @@
                 </div>
             </div>
         </section>
+
     {% endblock %}
 
 
