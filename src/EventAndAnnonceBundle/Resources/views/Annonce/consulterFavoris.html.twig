@@ -1,77 +1,176 @@
-{% extends "ZanimauxBundle:User:Layout2.html.twig" %}
-{% trans_default_domain 'FOSUserBundle' %}
-{% block head %}
-    {{ parent() }}
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+ <link href="{{ asset('css/BarElFou9aniya.css') }}" rel="stylesheet" />
 
-    <title>{% block title %}{{ parent() }} -profile{% endblock %}</title>
-    <script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
-{% endblock %}
+        {% block up %}
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
 
-{% block menu %}
-    <section class="menu-section">
-        <div class="container">
-            <div class="row ">
-                <div class="col-md-12">
+            <div id="container">
 
-                    <div class="navbar-collapse collapse ">
-                        <ul id="menu-top" class="nav navbar-nav navbar-right">
-                            <li><a href="{{ path('redirectDresseur') }}">Accueil</a></li>
-                            <li><a href="{{ path('afficherCabinetsFront') }}">Veterinaire</a></li>
-                            <li><a href="{{ path('consulter_a') }}">Annonce</a></li>
-                            <li><a href="{{ path('readFavoris') }}" class="menu-top-active">Mes Annonces Favoris</a></li>
-                            <li><a href="{{ path('read_e') }}" >Evenement</a></li>
-                            <li><a href="{{ path('listparc') }}">Parc</a></li>
-                            <li><a href="{{ path('profileDresseur') }}">Profil</a></li>
-                        </ul>
-                    </div>
+                <!------ Include the above in your HEAD tag ---------->
+
+                <nav class="navbar navbar-default navbar-fixed-top" style="height: 1px">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+
+                            <a class="navbar-brand" href="{{ path('redirect') }}"><img src="{{ asset('img/logo2.png') }}" style="position: absolute;   top: 0;left: O;bottom: 0; "/></a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                            <ul class="nav navbar-nav" style="position: absolute;  top: 0;right: 10px;bottom: 0; ">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                            <span class="glyphicon glyphicon-user"></span>
+                                            <strong>{{ user.username }}</strong>
+                                            <span class="glyphicon glyphicon-chevron-down"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <div class="navbar-login">
+                                                    <div class="row">
+                                                        <div class="col-lg-4">
+                                                            <p class="text-center">
+                                                                <span class="glyphicon glyphicon-user icon-size"></span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-lg-8">
+                                                            <p class="text-left"><strong>{{ user.nom }} {{ user.prenom }}</strong></p>
+                                                            <p class="text-left small">{{ user.email }}</p>
+                                                            <p class="text-left">
+                                                                <a href="{{ path('profile') }}" class="btn btn-primary btn-block btn-sm">Voir profil</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="divider"></li>
+                                            <li>
+                                                <div class="navbar-login navbar-login-session">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <p>
+                                                                <a href="{{ path('deconnexion') }}" class="btn btn-danger btn-block">se déconnecter</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </ul>
+
+
+
+                            <ul class="nav navbar-nav navbar-right" style="position: absolute; top: 0;right: 220px;bottom: 0; ">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span>DT<span class="caret"></span></a>
+                                    <ul class="dropdown-menu dropdown-cart" role="menu">
+                                        {% for p in cPanier%}
+                                            <li>
+                  <span class="item">
+                    <span class="item-left">
+                        <img src="{{asset('img/produit/'~p.IdProduit.photoProduit )}}" style="height:100px; width:100px"/></br>
+                        <span class="item-info">
+                            <span>Libelle: {{ p.IdProduit.libelle }}</span></br>
+                            <span>Quantité:{{ p.quantite }}</span></br>
+                            <span>Prix:{{ p.idProduit.prix *p.quantite }} dt</span></br>
+                        </span>
+                    </span>
+                    <span class="item-right">
+                        <button class="btn btn-xs btn-danger pull-right"><a href="{{ path('suppProduit_p',{'idContenuPanier':p.IdContenuPanier,'prix':p.idProduit.prix,'quantite':p.quantite }) }}">x</a></button>
+                    </span>
+                </span>
+                                            </li>
+                                        {% endfor %}
+
+                                        <li class="divider"></li>
+                                        <li><a class="text-center" href="{{ path('affichePanier') }}">Voir Panier</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+                    </div><!-- /.container-fluid -->
+                </nav>
+                <div>
 
                 </div>
-
             </div>
-        </div>
-    </section>
+
+            {% block menu %}
+                <section class="menu-section" style="margin-top:50px">
+                    <form class="navbar-form navbar-right" method="post" action="{{ path('rechercher_a') }}">
+                        <nav>
+                            <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search" name="ann">
+                        </nav>
+                    </form>
+                    <div class="container">
+                        <div class="row ">
+                            <div class="col-md-12">
+
+                                <div class="navbar-collapse collapse ">
+                                    <ul id="menu-top" class="nav navbar-nav navbar-right">
+                                        <li><a href="{{ path('redirect') }}">Accueil </a></li>
+                                        <li><a href="{{ path('afficherCabinetsFront') }}"> Veterinaire </a></li>
+                                        <li><a href="{{ path('afficher_refuge') }}"> Refuge </a></li>
+                                        <li ><a href="{{ path('affiche_m') }}">Magasin </a></li>
+                                        <li><a href="{{ path('listparc') }}"> Dresseur & pet-sitter </a></li>
+                                        <li><a href="{{ path('consulter_a') }}"> Annonce</a></li>
+                                        <li><a href="{{ path('readFavoris') }}" class="menu-top-active">Mes Annonces Favoris</a></li>
+                                        <li><a href="{{ path('read_e') }}">evenement</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            {% endblock %}
+
+            {% block contenu %}
+                <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+                <link href="{{ asset('css/essaye.css') }}" rel="stylesheet">
+                <!------ Include the above in your HEAD tag ---------->
+
+                <div class="container">
+                    <div class="row">
+                        <div class="[ col-xs-12 col-sm-offset-2 col-sm-8 ]">
+                            <ul class="event-list">
+                                {% for annonce in annoncesFavoris %}
+                                    <li>
+
+                                        <img alt="My 24th Birthday!" src="{{ asset('img/'~annonce.pieceJointe) }}" />
+
+                                        <div class="info">
+                                            <h2 class="title">{{ annonce.titre }}</h2>
+                                            <p class="desc">{{ annonce.description }}</p>
+                                            <p class="desc">{{ annonce.type }}</p>
+                                            <ul>
+
+                                                    <li  style="width:34%;"><a href="{{ path("annulerFavoris",{ "idA": annonce.idAnnonce })}}"><span class="fa fa-heart-o"></span></a></li>
+
+                                            </ul>
+                                        </div>
+                                        <div class="social">
+                                            <ul>
+                                                <li class="facebook" style="width:33%;"><a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1&display=popup&ref=plugin&src=like&kid_directed_site=0"><span class="fa fa-facebook"></span></a></li>
+                                                <li class="twitter" style="width:34%;"><a href="https://twitter.com/intent/tweet?hashtags=Esprit&original_referer=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1&ref_src=twsrc%5Etfw&text=Je%20veux%20partager%20%C3%A7a%20avec%20vous&tw_p=tweetbutton&url=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1&via=Esprit%20Test"><span class="fa fa-twitter"></span></a></li>
+                                                <li class="google-plus" style="width:33%;"><a href="https://plus.google.com/share?app=110&url=http%3A%2F%2Flocalhost%2FzanimauxFinal%2Fweb%2Fapp_dev.php%2Fevent%2Fconsulter%3Fpage%3D1"><span class="fa fa-google-plus"></span></a></li>
+                                            </ul>
+
+                                        </div>
+                                    </li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            {% endblock %}
 {% endblock %}
-{% block contenu %}
-    <div class="just-sec" id="port-folio">
-
-
-    <div class="container">
-
-        <div class="row " >
-            <ul id="filters" >
-
-                <table border="0"align="center">
-                    <tr>
-
-                        <td style="padding-right:50px;">Titre</td>
-                        <td style="padding-right:50px;">Type </td>
-                        <td style="padding-right:50px;">Description</td>
-                        <td style="padding-right:50px;">Piece jointe</td>
-
-
-
-
-                    </tr>
-
-                    {% for annonce in annoncesFavoris %}
-                        <tr>
-                            <td style="padding-right:50px;">{{ annonce.titre}}</td>
-                            <td style="padding-right:50px;">{{ annonce.type}}</td>
-                            <td style="padding-right:50px;">{{ annonce.description }}</td>
-                            <td style="padding-right:50px;">{{ annonce.piecejointe }}
-
-                            <td><a href="{{ path("annulerFavoris",{ "idA": annonce.idAnnonce })}}"><span class="fa fa-heart-o"></span></a></td>
-                        </tr>
-                    {% endfor %}
-                </table>
-                </br>
-
-            </ul>
-
-        </div>
-    </div>
-{%endblock %}
