@@ -42,7 +42,8 @@ class PetSitterController extends Controller
         $promenade = new Promenade();
         $form = $this->createForm(PromenadeType::class,$promenade);
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
+$promenade->setPhotoPromenade('petsitter4.jpg');
             $em = $this->getDoctrine()->getManager();
             $em->persist($promenade);
             $em->flush();

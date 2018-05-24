@@ -33,7 +33,8 @@ class DresseurController extends Controller
         $parc = new Parc();
         $form = $this->createForm(Registration::class, $parc);
         $form->handleRequest($request);
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
+            $parc->setPhotoParc("parcChien.jpg");
             $em = $this->getDoctrine()->getManager();
             $em->persist($parc);
             $em->flush();
@@ -311,7 +312,7 @@ public function rechearcheParcAction (Request $request){
     }
 
 
-    public function ratingAction($val)
+    public function ratingAction($parc,$val)
     {
         $user = $this->getUser();
         if (!is_object($user) || !$user instanceof UserInterface) {
@@ -319,13 +320,14 @@ public function rechearcheParcAction (Request $request){
         }
 
 
-            $em = $this->getDoctrine()->getManager();
-            $em->getRepository('PetSitterDresseurBundle:Avis')->findOneBy(array('cinUser'=>$user));
-            $avis = new Avis();
-            $avis->setCinUser($user);
-            $avis->setAvis($val);
-            $em->persist($avis);
-            $em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $em->getRepository('PetSitterDresseurBundle:Avis')->findOneBy(array('cinUser'=>$user));
+        $avis = new Avis();
+        $avis->setIdParc($parc);
+        $avis->setCinUser($user);
+        $avis->setAvis($val);
+        $em->persist($avis);
+        $em->flush();
 
         return $this->redirectToRoute('listparc');
 

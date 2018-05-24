@@ -20,7 +20,7 @@ recherche_Promenade_DQL:
     path:     /rechercheDQLPromenade
     defaults: { _controller: PetSitterDresseurBundle:PetSitter:recherche }
 rating:
-    path:     /avis/{val}
+    path:     /avis/parc/{parc}/val/{val}
     defaults: { _controller: PetSitterDresseurBundle:Dresseur:rating }
 consulter:
     path:     /consulparc/{id}
